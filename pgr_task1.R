@@ -9,13 +9,25 @@ IndexOfMin <- function(array, first, last) {
 }
 
 
-IndexOfMin(c(5,6,7,9,4,3,2,1), 1, 7)
-
-
-
-SelectionSort <- function(a, n) {
-  for i ← 1 to n − 1
-    j <- IndexOfMin(a, i, n)
-    Swap elements a(i) and a(j)
-  return a
+SelectionSort <- function(array, n) {
+  for (i in 1:(n-1)) {
+    j <- IndexOfMin(array, i, n)
+    #Swap elements a(i) and a(j)
+    temp <- array[i]
+    array[i] <- array[j]
+    array[j] <- temp
+  }
+  return(array)
 }
+
+SelectionSort(c(5,6,7,9,4,3,2,1, 10, 17), 8)
+
+
+#RecursiveSelectionSort <- function(array, first, last) {
+ # if (first < last) {
+  #  index <-IndexOfMin(array, first, last)
+   # Swap array(first) with array(index)
+    #array <- RecursiveSelectionSort(array, first + 1, last)
+#  }
+#return(a)
+#}
