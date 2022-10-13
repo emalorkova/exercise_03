@@ -20,14 +20,18 @@ SelectionSort <- function(array, n) {
   return(array)
 }
 
-SelectionSort(c(5,6,7,9,4,3,2,1, 10, 17), 8)
+
+RecursiveSelectionSort <- function(array, first, last) {
+  if (first < last) {
+    index <-IndexOfMin(array, first, last)
+    #Swap array(first) with array(index)
+    temp <- array[first]
+    array[first] <- array[index]
+    array[index] <- temp
+    array <- RecursiveSelectionSort(array, first + 1, last)
+  }
+return(array)
+}
 
 
-#RecursiveSelectionSort <- function(array, first, last) {
- # if (first < last) {
-  #  index <-IndexOfMin(array, first, last)
-   # Swap array(first) with array(index)
-    #array <- RecursiveSelectionSort(array, first + 1, last)
-#  }
-#return(a)
-#}
+RecursiveSelectionSort(c(5,6,7,9,4,3,2,1, 10, 17), 1, 8)
